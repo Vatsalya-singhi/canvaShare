@@ -1,0 +1,7 @@
+{
+  "name": "mobsys",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
