@@ -1,0 +1,32 @@
+ion-popover-view.fit {
+    height: auto;
+}
+
+ion-popover-view.fit ion-content {
+    position: relative;
+}
+
+.platform-android ion-popover-view.fit {
+    margin-top: 10px;
+}
+
+.platform-ios ion-popover-view.fit {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.color-block {
+    height: 40px;
+}
+
+.border {
+    border: 2px solid blue;
+}
+
+ion-col {
+    display: flex;
+    justify-content: center;
+    // border: 1px solid #cecece !important;
+    // border-style: unset;
+    // border-radius: 10px;
+}

@@ -1,0 +1,83 @@
+#particles-js {
+    background-color: white;
+    height: 400px;
+}
+
+.active {
+    --background: none;
+    // background-color: red;
+    // border-top-left-radius: 20px;
+    // border-top-right-radius: 20px;
+
+    border-bottom: 3px solid red;
+    // border-bottom-left-radius: 20px;
+    // border-bottom-right-radius: 20px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.align-center {
+    align-content: center;
+    justify-content: center;
+}
+
+ion-toolbar {
+    --background: none;
+
+    --background: transparent !important;
+    --ion-color-base: transparent !important;
+}
+
+// .text-style {
+//     font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+//     font-size: large;
+//     color: cornflowerblue;
+// }
+
+.front-title {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color: black;
+    font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.new-font {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+}
+
+.glass-bg {
+    background: rgba(255, 255, 255, 0.2);
+    border: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.side-padding {
+    padding-inline: 20px !important;
+    padding-block: 20px !important;
+}
+
+.heading-color {
+    color: #41464b;
+}
+
+.mr-10px {
+    margin-right: 10px;
+}

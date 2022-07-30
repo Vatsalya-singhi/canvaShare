@@ -1,0 +1,151 @@
+<ion-header class="front-header-color" translucent="true">
+    <ion-toolbar class="front-header-color">
+        <ion-title class="text-style align-center front-title"> CanvaShare </ion-title>
+
+        <ion-buttons slot="end">
+            <ion-button fill="clear" (click)="logout()">
+                <ion-icon slot="icon-only" color="danger" name="log-out"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding front-page-bg">
+
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-grid class="h-100">
+        <ion-row class="h-100 d-flex align-items-center justify-content-center" text-center>
+
+            <!-- <ion-col class="p-0"></ion-col> -->
+
+            <ion-col size-xs="12" size-sm="12" size-md="8" size-lg="6" size-xl="6"
+                class="p-0 glass-bg d-flex flex-column align-items-center justify-content-center side-padding">
+
+                <div class="w-100 text-center front-title height-38 mt-24 mb-16">
+                    Collaborate And Innovate! :)
+                </div>
+
+                <ion-row class="w-100">
+                    <ion-col style="cursor: pointer;" (click)="switchtab(true)"
+                        class="text-center text-capitalize mb-4 f-s-l bg-color-p" [ngClass]="{'active': tabFlag}">
+                        <span class="heading-color new-font">Create Room</span>
+                    </ion-col>
+                    <ion-col style="cursor: pointer;" (click)="switchtab(false)"
+                        class="text-center text-capitalize mb-4 f-s-l bg-color-p" [ngClass]="{'active': !tabFlag}">
+                        <span class="heading-color new-font">Join Room</span>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row class="w-100">
+
+                    <!-- CREATE ROOM -->
+                    <ion-col *ngIf="tabFlag">
+                        <form [formGroup]="createForm">
+                            <!-- room name -->
+                            <ion-item class="input-item mb-16 pointer">
+                                <ion-icon name="people-circle-outline" class="mr-10px"></ion-icon>
+                                <ion-input (click)="copyRoom()" class="pointer text-truncate" readonly type="text"
+                                    formControlName="name"></ion-input>
+                            </ion-item>
+                            <span class="red-text" *ngIf="name.touched && name.invalid && name.errors.required">
+                                Room Name is required
+                            </span>
+
+                            <!-- password -->
+                            <ion-item class="input-item mb-16">
+                                <ion-icon name="apps-outline" class="mr-10px"></ion-icon>
+                                <ion-input class="text-truncate" formControlName="password"></ion-input>
+                            </ion-item>
+                            <span class="red-text"
+                                *ngIf="password.touched && password.invalid && password.errors.required">
+                                Password is required
+                            </span>
+                            <span class="red-text"
+                                *ngIf="password.touched && password.invalid && password.errors.minlength">
+                                Password should be min 5 chars
+                            </span>
+
+
+                            <ion-item class="input-item mb-16">
+                                <ion-label class="m-0 p-0 ion-text-wrap new-font mr-10px">Allow everyone to Edit ? </ion-label>
+                                <ion-checkbox class="m-0 p-0" slot="end" formControlName="editCan" color="danger">
+                                </ion-checkbox>
+                            </ion-item>
+
+                            <div class="text-center mb-16">
+                                <ion-button expand="block" (click)="onCreate()" [disabled]="!createForm.valid"
+                                    class="mr-0 ml-0 height-56 text-capitalize font-s-18 theme-button new-font">
+                                    Create!
+                                </ion-button>
+                            </div>
+                        </form>
+                    </ion-col>
+
+                    <!-- JOIN ROOM -->
+                    <ion-col *ngIf="!tabFlag">
+                        <form [formGroup]="joinForm">
+                            <!-- room Name -->
+                            <ion-item class="input-item mb-16">
+                                <ion-icon name="people-circle-outline" class="mr-10px"></ion-icon>
+                                <ion-input type="text" class="text-truncate" formControlName="joinName"></ion-input>
+                            </ion-item>
+                            <span class="red-text"
+                                *ngIf="joinName.touched && joinName.invalid && joinName.errors.required">
+                                Room Name is required
+                            </span>
+
+                            <!-- password -->
+                            <ion-item class="input-item mb-16">
+                                <ion-icon name="apps-outline" class="mr-10px"></ion-icon>
+                                <ion-input class="text-truncate" formControlName="joinPassword"></ion-input>
+                            </ion-item>
+
+                            <span class="red-text"
+                                *ngIf="joinPassword.touched && joinPassword.invalid && joinPassword.errors.required">
+                                Password is required
+                            </span>
+
+                            <span class="red-text"
+                                *ngIf="joinPassword.touched && joinPassword.invalid && joinPassword.errors.minlength">
+                                Password should be min 5 chars
+                            </span>
+
+                            <!-- userName -->
+                            <ion-item class="input-item mb-16">
+                                <ion-button expand="full" shape="round" size="small" color="danger" class="front-title mr-3" slot="start">
+                                    <!-- style="margin-left: -2%!important;" -->
+                                    Join As :
+                                    <!-- <ion-icon slot="end" name="barcode-outline"></ion-icon> -->
+                                </ion-button>
+                                <ion-input placeholder="Enter User Name" class="text-truncate" formControlName="userName"></ion-input>
+                            </ion-item>
+
+                            <span class="red-text"
+                                *ngIf="userName.touched && userName.invalid && userName.errors.required">
+                                UserName is required
+                            </span>
+
+                            <div class="text-center mb-16">
+                                <ion-button expand="block" (click)="onJoin()" [disabled]="!joinForm.valid"
+                                    class="mr-0 ml-0 height-56 text-capitalize font-s-18 theme-button new-font">
+                                    Join!
+                                </ion-button>
+                            </div>
+
+                        </form>
+                    </ion-col>
+
+                </ion-row>
+
+            </ion-col>
+
+            <!-- <ion-col class="p-0"></ion-col> -->
+        </ion-row>
+
+    </ion-grid>
+
+</ion-content>

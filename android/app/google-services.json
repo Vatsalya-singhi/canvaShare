@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "914595712966",
+    "firebase_url": "https://canva-share.firebaseio.com",
+    "project_id": "canva-share",
+    "storage_bucket": "canva-share.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914595712966:android:45c51b48b89a882b342cc7",
+        "android_client_info": {
+          "package_name": "com.atom.canvashare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "914595712966-1lb3sh63ff87719snb3psrnrpcc444u3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.atom.canvashare",
+            "certificate_hash": "ead5f82f2428adbf1f65c23b949caa9f1831bfeb"
+          }
+        },
+        {
+          "client_id": "914595712966-51qanfnpqthcd5a2m7ivv30rmtbg3ei6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4JaCSoUE-D-hPzcMojttDAcYTqNWcLKA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "914595712966-51qanfnpqthcd5a2m7ivv30rmtbg3ei6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "914595712966-nqr5b0irv667u0fmujm4cc1vejm65di0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.atom.canvashare"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914595712966:android:6093b3057e868d52342cc7",
+        "android_client_info": {
+          "package_name": "de.suas.mobilesystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "914595712966-51qanfnpqthcd5a2m7ivv30rmtbg3ei6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4JaCSoUE-D-hPzcMojttDAcYTqNWcLKA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "914595712966-51qanfnpqthcd5a2m7ivv30rmtbg3ei6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "914595712966-nqr5b0irv667u0fmujm4cc1vejm65di0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.atom.canvashare"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

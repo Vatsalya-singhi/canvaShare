@@ -1,0 +1,118 @@
+.video-container {
+    height: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+// video
+.video {
+    background: black !important;
+    width: 100%;
+    height: 100%;
+    display: block;
+    top: 0;
+    left: 0;
+}
+
+// buttons
+.call-options {
+    // position: absolute;
+    // bottom: 10%;
+    // width: 100%;
+    // display: flex;
+    // justify-content: space-evenly;
+
+    position: absolute;
+    bottom: 5%;
+    left: 20%;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    transform: translate(10%, -5%);
+    border-radius: 10px;
+    background: #41464b;
+
+    padding: 0.4rem;
+}
+
+.box-border-custom {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.bigbutton {
+    // height: 30px;
+    // width: 30px;
+
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.expand {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.show {
+    visibility: visible;
+}
+
+.slides {
+    position: absolute;
+    top: 3%;
+    left: 2%;
+    height: 35vh !important;
+    width: fit-content !important;
+    max-width: 25vw !important;
+
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.individualSlide {
+    width: fit-content !important;
+}
+
+.inherit {
+    // height: 35vh !important;
+    // width: fit-content !important;
+    // max-width: 25vw !important;
+    // height: inherit !important;
+    // width: unset !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .video {
+        border: 2px solid #882d39;
+        border-radius: 10px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .bigbutton {
+        height: 40px;
+        width: 40px;
+    }
+
+    .video {
+        border: 2px solid #882d39;
+        border-radius: 10px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .bigbutton {
+        height: 60px;
+        width: 60px;
+    }
+
+    .video {
+        border: 2px solid #882d39;
+        border-radius: 10px;
+    }
+}

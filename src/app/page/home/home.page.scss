@@ -1,0 +1,71 @@
+
+.canvas {
+    border: 2px solid black;
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.color-block {
+    height: 40px;
+}
+
+.border {
+    border: 2px solid blue;
+}
+
+ion-title {
+    font-size: large !important;
+}
+
+// Video call
+
+.call {
+    position: absolute;
+    height: 20%;
+    width: 30%;
+    min-height: 10%;
+    min-width: 20%;
+    bottom: 0 !important;
+    right: 0 !important;
+    z-index: 1000;
+}
+
+:host {
+    // .range-knob-pressed .range-pin {
+    //     transform: translate3d(0px, -20px, 0px) scale(1) !important;
+    //     z-index: 999;
+    // }
+
+    // ion-range::part(pin) {
+    //     transform: translate3d(0px, -10px, 0px) scale(1) !important;
+    //     z-index: 999;
+    // }
+
+    // .range-md .range-knob-handle .range-pin {
+    //     transform: translate3d(0px, -20px, 0px) scale(1);
+    //     z-index: 999;
+    // }
+
+    // .range-md:not(.range-has-pin) .range-knob-handle .range-knob {
+    //     transform: scale(1);
+    //     z-index: 999;
+    // }
+
+    // .range-ios .range-knob-handle .range-pin {
+    //     transform: translate3d(0px, -20px, 0px) scale(1);
+    //     z-index: 999;
+    // }
+
+    // .range-md .range-pin {
+    //     transform: translate3d(0px, -20px, 0px) scale(1);
+    //     z-index: 999;
+    // }
+}
+
+// .skeleton {
+//     transform: scale(1.3);
+// }
+
+// .skeleton:hover {
+//     transform: scale(1.3);
+// }

@@ -1,0 +1,52 @@
+<!-- https://www.joshmorony.com/building-an-absolute-drag-directive-in-ionic-2/ -->
+
+<div class="video-container">
+
+    <video class="video" id="userVideo" playsinline autoplay></video>
+
+    <!-- call-options -->
+    <ion-buttons [class.call-options]="true" [class.show]="showBtn" [class.hide]="!showBtn" class="box-border-custom">
+
+        <!-- MIC SETTINGS -->
+        <ion-button class="bigbutton" *ngIf="micFlag" (click)="toggleMic()" expand="block" fill="solid" shape="round"
+            size="large">
+            <ion-icon color="success" name="mic-outline"></ion-icon>
+        </ion-button>
+
+        <ion-button class="bigbutton" *ngIf="!micFlag" (click)="toggleMic()" expand="block" fill="solid" shape="round"
+            size="large">
+            <ion-icon color="danger" name="mic-off-outline"></ion-icon>
+        </ion-button>
+
+        <ion-button class="bigbutton" (click)="reverseCam()" expand="block" fill="solid" shape="round" size="large">
+            <ion-icon color="warning" name="camera-reverse-outline"></ion-icon>
+        </ion-button>
+
+        <!-- CAM SETTINGS -->
+        <ion-button class="bigbutton" (click)="toggleCam()" expand="block" fill="solid" shape="round" size="large">
+            <ion-icon [color]="camFlag ? 'success' : 'danger'" name="camera-outline"></ion-icon>
+        </ion-button>
+
+        <ion-button class="bigbutton" expand="block" fill="solid" shape="round" size="large" (click)="minimize()">
+            <ion-icon color="warning" name="contract-outline"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+
+    <!-- room user feed -->
+    <!-- <ion-slides lazyLoading pager="true" id="slides" class="slides" scrollbar="true" [class.show]="showBtn"
+        [class.hide]="!showBtn" [options]="slideOpts">
+
+        <ion-slide class="individualSlide" *ngFor="let id of idList ; trackBy: trackById">
+            <video class="inherit" id="{{id}}" playsinline autoplay></video>
+        </ion-slide>
+
+    </ion-slides> -->
+
+    <swiper [config]="slideOpts" id="slides" class="slides" [class.show]="showBtn" [class.hide]="!showBtn">
+        <ng-template swiperSlide *ngFor="let id of idList ; trackBy: trackById">
+            <video class="inherit" [id]="id" playsinline autoplay></video>
+        </ng-template>
+    </swiper>
+
+
+</div>

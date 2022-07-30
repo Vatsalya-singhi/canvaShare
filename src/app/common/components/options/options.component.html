@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title class="ion-text-capitalize">
+            Setting
+        </ion-title>
+
+        <ion-buttons slot="end">
+            <!-- <ion-button color="danger" fill="outline" (click)="cancel()">
+                Cancel
+            </ion-button> -->
+
+            <ion-button color="success" fill="solid" (click)="save()">
+                Save
+            </ion-button>
+        </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-row>
+        <ng-container *ngFor="let color of colors">
+            <ion-col [style.background]="color" [ngClass]="{'border': selectedColor == color,'color-block': true}"
+                tappable (click)="selectColor(color)">
+            </ion-col>
+        </ng-container>
+    </ion-row>
+
+    <ion-row>
+        <ion-col>
+            <ion-range pin="true" min="2" max="20" color="primary" [(ngModel)]="lineWidth">
+                <ion-icon size="small" slot="start" name="brush"></ion-icon>
+                <ion-icon slot="end" name="brush"></ion-icon>
+            </ion-range>
+        </ion-col>
+    </ion-row>
+
+</ion-content>

@@ -1,0 +1,82 @@
+<ion-content class="ion-padding bg-color-p login-page">
+
+    <ion-grid class="h-100">
+        <ion-row class="h-100 d-flex align-items-center justify-content-center">
+
+            <!-- <ion-col class="p-0"></ion-col> -->
+
+            <ion-col size-xs="12" size-sm="12" size-md="8" size-lg="6" size-xl="6"  class="p-0 glass-bg side-padding">
+
+                <form [formGroup]="registerForm" class="m-0 p-0">
+
+                    <ion-img [ngClass]="{'red-border': logoURL.touched && logoURL.invalid && !logoFile }"
+                        [src]="logotempURL ? logotempURL : defaultLogo" (click)="fileInput.click()"
+                        style='object-fit: contain;' class="height-93">
+                        <!-- mt-30 mb-24 -->
+                    </ion-img>
+
+                    <!-- [formControl]="logoURL" -->
+                    <input style="display: none" formControlName="logoURL" type="file" accept="image/*"
+                        (change)="onFileChanged($event)" #fileInput>
+
+                    <div class="text-center mb-16 font-xxl">
+                        Create account
+                    </div>
+
+                    <ion-item class="input-item mb-16"
+                        [class.err]="email.touched && email.invalid && email.errors.required">
+                        <ion-label position="floating" class="input-label">Display Name</ion-label>
+                        <ion-input type="text" formControlName="name"></ion-input>
+                    </ion-item>
+
+                    <ion-item class="input-item mb-16"
+                        [class.err]="email.touched && email.invalid && email.errors.required">
+                        <ion-label position="floating" class="input-label">Email</ion-label>
+                        <ion-input type="text" formControlName="email"></ion-input>
+                    </ion-item>
+
+                    <ion-item class="input-item mb-16"
+                        [class.err]="email.touched && email.invalid && email.errors.required">
+                        <ion-label position="floating" class="input-label">Password</ion-label>
+                        <ion-input type="password" formControlName="password"></ion-input>
+                    </ion-item>
+
+                    <ion-item class="input-item mb-16"
+                        [class.err]="email.touched && email.invalid && email.errors.required">
+                        <ion-label position="floating" class="input-label">Password again</ion-label>
+                        <ion-input type="password" formControlName="repassword"></ion-input>
+                    </ion-item>
+
+                    <div class="text-center mb-16">
+                        <ion-button expand="block" (click)="onSubmit()"
+                            [disabled]="!registerForm.valid || (repassword.value !== password.value)"
+                            class="mr-0 ml-0 height-56 text-capitalize font-s-18 theme-button">
+                            Create account
+                        </ion-button>
+                    </div>
+
+
+                    <ion-row>
+                        <ion-col class="p-0 ml-1">
+                            <a style="cursor: pointer;" (click)="forgotPassword()"
+                                class="decoration-none theme-color">Forgot Password?
+                            </a>
+                        </ion-col>
+
+                        <ion-col class="text-right p-0 mr-1">
+                            <a style="cursor: pointer;" (click)="login()" class="decoration-none theme-color">
+                                Login
+                            </a>
+                        </ion-col>
+                    </ion-row>
+
+                </form>
+
+            </ion-col>
+
+            <!-- <ion-col class="p-0"></ion-col> -->
+        </ion-row>
+    </ion-grid>
+
+
+</ion-content>

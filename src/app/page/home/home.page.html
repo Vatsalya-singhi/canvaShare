@@ -1,0 +1,110 @@
+<ion-header class="front-header-color" translucent="true">
+    <ion-toolbar color="dark">
+        <ion-title *ngIf="socket.configuration && socket.configuration.room"
+            class="hide-when-small align-center front-title white-text">
+            Welcome!
+        </ion-title>
+
+        <ion-buttons slot="end">
+            <ion-button fill="clear" [ngStyle]="{'opacity': opacityLevel }">
+                <ion-icon slot="icon-only" color="success" name="save"></ion-icon>
+            </ion-button>
+
+            <ion-button fill="clear" (click)="people()">
+                <ion-icon color="medium" slot="icon-only" name="people-circle-outline"></ion-icon>
+            </ion-button>
+
+            <!-- NEW added -->
+            <ion-button fill="clear" (click)="toggleVideo()">
+                <ng-container *ngIf="!callComponentVisible">
+                    <ion-icon slot="icon-only" name="tv-outline"></ion-icon>
+                    <ion-icon color="warning" slot="icon-only" name="arrow-up-outline"></ion-icon>
+                </ng-container>
+
+                <ng-container *ngIf="callComponentVisible">
+                    <ion-icon slot="icon-only" name="tv-outline"></ion-icon>
+                    <ion-icon color="warning" slot="icon-only" name="arrow-down-outline"></ion-icon>
+                </ng-container>
+            </ion-button>
+
+            <ion-button fill="clear" (click)="share()">
+                <ion-icon color="success" slot="icon-only" name="share-social-outline"></ion-icon>
+            </ion-button>
+
+            <ion-button fill="clear" (click)="showOption()">
+                <ion-icon color="warning" slot="icon-only" name="settings-outline"></ion-icon>
+            </ion-button>
+
+            <ion-button fill="clear" (click)="leaveRoom()">
+                <ion-icon color="danger" slot="icon-only" name="log-out-outline"></ion-icon>
+            </ion-button>
+
+        </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content [forceOverscroll]="false">
+    <!-- Timeline -->
+    <ion-row>
+        <ion-col no-padding class="m-0 p-0">
+            <ion-item class="m-0 p-0">
+                <ion-range [disabled]="points && points.length < 1" class="ml-0 mr-0 mb-0 pl-0 pr-0 pb-0"
+                    [ngModel]="points.length" pin="true" min="0" [max]="points.length" color="primary" step="1"
+                    snaps="true" (ionChange)="updateTimeline($event)">
+                    <ion-label slot="start">TimeLine</ion-label>
+                    <ion-icon size="small" slot="start" name="caret-back-outline"></ion-icon>
+                    <ion-icon size="small" slot="end" name="caret-forward-outline"></ion-icon>
+                </ion-range>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+
+    <!-- Canvas -->
+    <ion-row>
+
+        <ion-col class="m-0 p-0"></ion-col>
+
+        <!-- <ion-col> -->
+        <canvas class="canvas" #imageCanvas (mousedown)="startDrawing($event)" (touchstart)="startDrawing($event)"
+            (touchmove)="moved($event)" (mousemove)="moved($event)" (mouseup)="endDrawing($event)"
+            (touchend)="endDrawing($event)">
+        </canvas>
+        <!-- </ion-col> -->
+
+        <ion-col class="m-0 p-0"></ion-col>
+
+    </ion-row>
+
+    <!-- Options -->
+    <ion-row>
+        <ion-col>
+            <ion-button [disabled]="points && points.length === 0" color="danger" expand="full" (click)="undo()">
+                <ion-icon slot="start" name="arrow-undo-circle-outline"></ion-icon>
+                Undo
+            </ion-button>
+        </ion-col>
+
+        <ion-col>
+            <ion-button [disabled]="points && points.length === 0" color="danger" expand="full"
+                (click)="confirmAndResetCanvas()">
+                <ion-icon slot="start" name="close-circle-outline"></ion-icon>
+                Reset Canvas
+            </ion-button>
+        </ion-col>
+
+        <!-- <ion-col>
+            <ion-button expand="full" (click)="exportCanvasImage()">
+                <ion-icon slot="start" name="download"></ion-icon>
+                Export Canvas as Image
+            </ion-button>
+        </ion-col> -->
+
+    </ion-row>
+
+
+    <!-- VIDEO COMPONENT -->
+    <app-call [hidden]="!callComponentVisible" (minimizeEmit)="minimize()" absolute-drag (showExpand)="showExpand()"
+        #call class="call"></app-call>
+</ion-content>

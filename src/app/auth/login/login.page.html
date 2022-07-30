@@ -1,0 +1,69 @@
+<ion-content class="ion-padding bg-color-p login-page">
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-grid class="h-100">
+        <ion-row class="h-100 d-flex align-items-center justify-content-center">
+            <!-- <ion-col class="p-0"></ion-col> -->
+            <ion-col size-xs="12" size-sm="12" size-md="8" size-lg="6" size-xl="6"
+                class="p-0 glass-bg d-flex flex-column align-items-center justify-content-center side-padding">
+                <!-- <div class="height-164 mt-50 mb-16">
+                </div> -->
+
+                <div class="w-100 text-center text-capitalize mb-16 font-xxl">
+                    <span>CanvaShare</span>
+                    <div class="text-center text-capitalize f-s-l font-xxl">
+                        <span>Collaborate and Develop From Anywhere</span>
+                    </div>
+                </div>
+
+                <form [formGroup]="loginForm" class="w-100">
+                    <ion-item class="input-item mb-16"
+                        [class.err]="email.touched && email.invalid && email.errors.required">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <ion-input type="text" formControlName="email"></ion-input>
+                    </ion-item>
+
+                    <ion-item class="input-item mb-16"
+                        [class.err]="password.touched && password.invalid && password.errors.required">
+                        <ion-icon name="lock-open-outline"></ion-icon>
+                        <ion-input type="password" formControlName="password"></ion-input>
+                    </ion-item>
+
+                    <div class="text-center mb-4">
+                        <ion-button expand="block" (click)="onSubmit()" [disabled]="!loginForm.valid"
+                            class="mr-0 ml-0 height-56 text-capitalize font-s-18 theme-button">
+                            Login
+                        </ion-button>
+                    </div>
+                </form>
+
+                <ion-row class="w-100">
+                    <ion-col class="p-0 ml-1">
+                        <ion-button expand="block" (click)="gloginclicked()"
+                            class="mr-0 ml-0 height-56 text-capitalize font-s-18 google-btn">
+                            Sign In With Google
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row class="w-100 padding-top-10px">
+                    <ion-col class="p-0 ml-1">
+                        <a style="cursor: pointer;" (click)="forgotPassword()"
+                            class="decoration-none theme-color">Forgot Password?
+                        </a>
+                    </ion-col>
+
+                    <ion-col class="text-right p-0 mr-1">
+                        <a style="cursor: pointer;" (click)="register()" class="decoration-none theme-color">
+                            Signup
+                        </a>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+            <!-- <ion-col class="p-0"></ion-col> -->
+        </ion-row>
+    </ion-grid>
+
+</ion-content>
